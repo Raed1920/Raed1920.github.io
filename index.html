@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raed Bettaher - Portfolio</title>
+<meta name="description" content="Raed Bettaher, Software Engineering student. Full-stack development, cloud and AI.">
+<style>
+:root{
+  --teal:#0d9488; --teal-d:#0f766e; --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-400:#94a3b8; --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --blue-50:#eff6ff;
+  --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--slate-800);
+  background:linear-gradient(135deg,var(--slate-50),var(--blue-50));min-height:100vh;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1152px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:48px;color:var(--slate-800)}
+h2::after{content:"";display:block;width:64px;height:4px;background:var(--teal);border-radius:2px;margin:12px auto 0}
+
+/* nav */
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);z-index:50;border-bottom:1px solid var(--slate-200)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:16px;padding-bottom:16px}
+.logo{font-size:1.5rem;font-weight:700}.logo span{color:var(--teal)}
+.links{display:flex;gap:32px}
+.links a{color:var(--slate-600);transition:color .2s}.links a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:6px;font-size:.875rem;font-weight:500;padding:8px 16px;transition:all .2s;cursor:pointer;border:1px solid var(--teal)}
+.btn-o{color:var(--teal);background:transparent}.btn-o:hover{background:var(--teal);color:#fff}
+.btn-f{background:var(--teal);color:#fff}.btn-f:hover{background:var(--teal-d)}
+.btn-lg{padding:12px 24px;font-size:1rem}
+
+/* hero */
+#home{padding-top:128px;padding-bottom:64px}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:48px}
+.hero>div:first-child{flex:1}
+.social{display:flex;gap:16px;margin-bottom:32px}
+.social a{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.1);display:grid;place-items:center;color:var(--slate-600);transition:all .2s}
+.social a:hover{color:var(--teal);box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.social svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero h1{font-size:3rem;line-height:1.15;font-weight:700;margin-bottom:12px}
+.hero h1 span{color:var(--teal)}
+.role{font-size:1.4rem;color:var(--slate-600);margin-bottom:20px}
+.hero p.lead{color:var(--slate-600);font-size:1.1rem;max-width:560px;margin-bottom:32px}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.avatar{width:320px;height:320px;border-radius:50%;flex-shrink:0;object-fit:cover;object-position:center 20%;box-shadow:0 20px 40px rgba(13,148,136,.25);border:8px solid #fff;background:#e2e8f0}
+.reveal{opacity:0;transform:translateY(24px);transition:all .8s ease}.reveal.in{opacity:1;transform:none}
+
+/* about */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.card{background:var(--card);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.07);transition:all .25s}
+.card:hover{box-shadow:0 10px 24px rgba(0,0,0,.1);transform:translateY(-3px)}
+.about-card .ico{font-size:2rem;margin-bottom:8px}
+.about-card h3{font-size:1.1rem;margin-bottom:8px}
+.about-card p{color:var(--slate-600);font-size:.95rem}
+.about-text{max-width:760px;margin:0 auto 40px;text-align:center;color:var(--slate-600);font-size:1.05rem}
+
+/* skills */
+#skills,#experience,#contact{background:rgba(255,255,255,.55)}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.skill-grid h3{font-size:1.1rem;margin-bottom:16px;color:var(--teal-d)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:var(--slate-100);color:var(--slate-700);border-radius:999px;padding:4px 12px;font-size:.85rem;transition:all .2s}
+.tag:hover{background:var(--teal);color:#fff}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.proj{display:flex;flex-direction:column}
+.proj .num{font-size:.8rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}
+.proj h3{font-size:1.25rem;margin:6px 0 4px}
+.proj .meta{font-size:.85rem;color:var(--slate-400);margin-bottom:12px}
+.proj p{color:var(--slate-600);font-size:.95rem;margin-bottom:16px;flex:1}
+.proj .tags{margin-bottom:16px}
+.proj .tag{background:#ccfbf1;color:var(--teal-d)}
+.badge{display:inline-block;background:#fef3c7;color:#92400e;border-radius:6px;padding:2px 10px;font-size:.78rem;font-weight:600;margin-bottom:8px;width:fit-content}
+
+/* timeline */
+.timeline{max-width:820px;margin:0 auto;border-left:3px solid var(--slate-200);padding-left:32px}
+.job{position:relative;margin-bottom:40px}
+.job::before{content:"";position:absolute;left:-42px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--teal);border:3px solid #fff;box-shadow:0 0 0 2px var(--teal)}
+.job .date{font-size:.8rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}
+.job h3{font-size:1.2rem;margin:4px 0 2px}
+.job .org{color:var(--slate-600);margin-bottom:12px}
+.job ul{padding-left:20px;color:var(--slate-600);font-size:.95rem}
+.job li{margin-bottom:6px}
+.job .tags{margin-top:12px}
+
+/* certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.cert{text-align:center}.cert .ico{font-size:2.2rem;margin-bottom:8px}.cert h3{font-size:1rem}.cert p{color:var(--slate-600);font-size:.85rem}
+
+/* contact */
+.contact-box{max-width:640px;margin:0 auto;text-align:center}
+.contact-box p{color:var(--slate-600);margin-bottom:28px}
+.contact-list{display:grid;gap:12px;margin-bottom:28px}
+.contact-list a{background:#fff;border-radius:10px;padding:14px 20px;box-shadow:0 2px 6px rgba(0,0,0,.06);transition:all .2s;display:block}
+.contact-list a:hover{color:var(--teal);box-shadow:0 8px 18px rgba(0,0,0,.1)}
+footer{text-align:center;padding:32px 24px;color:var(--slate-400);font-size:.875rem;border-top:1px solid var(--slate-200)}
+
+@media(max-width:820px){
+  .links{display:none}
+  .hero{flex-direction:column-reverse;text-align:center}
+  .social,.cta{justify-content:center}
+  .hero h1{font-size:2.25rem}.avatar{width:220px;height:220px}
+  .hero p.lead{margin-left:auto;margin-right:auto}
+  .projects{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#home">Raed<span>.</span></a>
+    <div class="links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:8px"><a class="btn btn-o" href="raed-bettaher-cv-fr.pdf" target="_blank" rel="noopener">CV (FR)</a><a class="btn btn-o" href="raed-bettaher-cv-en.pdf" target="_blank" rel="noopener">CV (EN)</a></div>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="wrap hero">
+    <div class="reveal">
+      <div class="social">
+        <a href="https://github.com/Raed1920" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+        <a href="https://www.linkedin.com/in/raed-bettaher-506956275/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="mailto:raed.bettaher@etudiant-fst.utm.tn" aria-label="Email"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
+        <a href="tel:+21690485020" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+      </div>
+      <h1>Hello, I'm <span>Raed Bettaher</span></h1>
+      <p class="role">Software Engineering Student</p>
+      <p class="lead">Full-stack developer building real-world platforms across healthcare, education and research management, with a growing focus on cloud and AI. Hackathon finalist and AWS-certified.</p>
+      <div class="cta">
+        <a class="btn btn-f btn-lg" href="#projects">Discover My Projects</a>
+        <a class="btn btn-o btn-lg" href="#contact">Contact Me</a>
+      </div>
+    </div>
+    <img class="avatar reveal" src="raed.jpg" alt="Raed Bettaher" width="320" height="320">
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About Me</h2>
+    <p class="about-text">I'm an engineering student at the Faculty of Sciences of Tunis (Tunis El Manar University), expected to graduate in October 2027. I've shipped production features with Angular and Spring Boot, built AI-driven products at a healthcare startup, and placed in several hackathons. Outside code, I'm a Taekwondo 1st Dan and instructor, and I play basketball and competitive e-sports.</p>
+    <div class="grid4">
+      <div class="card about-card reveal"><div class="ico">🚀</div><h3>Production Mindset</h3><p>Real-time features, CI/CD pipelines and quality gates that keep platforms stable.</p></div>
+      <div class="card about-card reveal"><div class="ico">🤖</div><h3>AI Builder</h3><p>RAG systems, agent orchestration and ML projects turned into working products.</p></div>
+      <div class="card about-card reveal"><div class="ico">🎯</div><h3>Problem Solver</h3><p>Hackathon-tested: clear thinking and fast delivery under tight deadlines.</p></div>
+      <div class="card about-card reveal"><div class="ico">🤝</div><h3>Team Player</h3><p>Comfortable in Scrum teams, from stand-ups to retrospectives. Also a Taekwondo instructor.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skill-grid">
+      <div class="card reveal"><h3>Programming Languages</h3><div class="tags"><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">Python</span><span class="tag">SQL</span></div></div>
+      <div class="card reveal"><h3>Frontend</h3><div class="tags"><span class="tag">React.js</span><span class="tag">Next.js</span><span class="tag">Angular</span><span class="tag">Tailwind CSS</span></div></div>
+      <div class="card reveal"><h3>Backend</h3><div class="tags"><span class="tag">Spring Boot</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Flask</span><span class="tag">FastAPI</span></div></div>
+      <div class="card reveal"><h3>Databases</h3><div class="tags"><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">SQL Server</span><span class="tag">Supabase</span><span class="tag">MongoDB</span><span class="tag">Cassandra</span><span class="tag">Neo4j</span></div></div>
+      <div class="card reveal"><h3>Cloud &amp; DevOps</h3><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">GitLab CI/CD</span><span class="tag">SonarQube</span></div></div>
+      <div class="card reveal"><h3>AI / ML</h3><div class="tags"><span class="tag">HuggingFace</span><span class="tag">Ollama</span><span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">NLP</span><span class="tag">RAG Systems</span><span class="tag">Agent Orchestration</span></div></div>
+      <div class="card reveal"><h3>Languages</h3><div class="tags"><span class="tag">English (C1)</span><span class="tag">French (C2)</span><span class="tag">Arabic (Native)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <article class="card proj reveal">
+        <span class="badge">🥈 2nd Place</span>
+        <span class="num">LunarHack 1.0 · 2025</span>
+        <h3>Campus Compass</h3>
+        <div class="meta">Hackathon · 2nd place</div>
+        <p>AI-assisted campus navigation and lost-and-found system that helps students find locations and recover items inside the university. The repo includes the app, a demo video, a user manual and the pitch deck.</p>
+        <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920/ATIA_LunarHack" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="badge">5th Place</span>
+        <span class="num">MenaCraft Hackathon · 2026</span>
+        <h3>Detectify: Content Authenticity &amp; Trust Scoring</h3>
+        <div class="meta">Hackathon · 5th place</div>
+        <p>Detects manipulated or AI-generated content, checks contextual consistency and source credibility, and returns a unified trust score with explainable risk indicators. Three FastAPI services, a React web app and a Chrome extension.</p>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">PyTorch</span><span class="tag">Transformers / CLIP</span><span class="tag">Gemini API</span><span class="tag">Chrome Extension</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920/Hackathon_GDGC" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="badge">Top 10</span>
+        <span class="num">LunarHack 2.0 · 2026</span>
+        <h3>Lunar Hack: AI Decision Platform for SMEs</h3>
+        <div class="meta">Hackathon · Top 10</div>
+        <p>Monorepo of prototypes helping traditional SMEs go smart: an AI decision engine with multi-agent orchestration and RAG, a combined React frontend, and an SEO module, with local LLMs.</p>
+        <div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Multi-agent</span><span class="tag">RAG (RAGFlow)</span><span class="tag">Ollama</span><span class="tag">Docker</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920/Lunar_Hack_Madagascar" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="num">Personal project · 2026</span>
+        <h3>LightningExtractor</h3>
+        <div class="meta">Computer vision</div>
+        <p>Scans long night-time videos, detects lightning strikes, exports a clip around each one, picks the sharpest frame and isolates the bolt as a transparent PNG. Includes an AI enhancement stage with frame interpolation.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">FFmpeg</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920/lightning-detection" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="num">Academic project · 2025</span>
+        <h3>Graph Coloring: Welsh-Powell Algorithm</h3>
+        <div class="meta">Graph theory course (IGL3)</div>
+        <p>Group project implementing the Welsh-Powell greedy vertex-coloring algorithm in Python, applied to scheduling tasks with exclusion constraints. Delivered as a notebook and a written report.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Graph Theory</span><span class="tag">Algorithms</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920/Graphes_IGL3" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="num">Academic project · 2025</span>
+        <h3>PFEX: Final-Year Project Management Platform</h3>
+        <div class="meta">Co-architect</div>
+        <p>Full-stack platform managing the whole lifecycle of 360+ final-year (PFE) project subjects every year for students, professors and administration: submission, validation, supervision and progress tracking.</p>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">Material UI</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920?tab=repositories" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="card proj reveal">
+        <span class="num">Academic project · 2024</span>
+        <h3>SOFTECH: School Management Platform</h3>
+        <div class="meta">Full-stack</div>
+        <p>School-management platform covering students, teachers, courses, grades, timetables and payments.</p>
+        <div class="tags"><span class="tag">React.js</span><span class="tag">Tailwind CSS</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+        <a class="btn btn-o" href="https://github.com/Raed1920?tab=repositories" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Professional Experience</h2>
+    <div class="timeline">
+
+      <div class="job reveal">
+        <div class="date">June 2026 – August 2026</div>
+        <h3>Software Engineer Intern</h3>
+        <div class="org">EspritTech · Tunis, Tunisia<br><em>Intelligent Platform for the Management and Industrialization of Academic Projects</em></div>
+        <ul>
+          <li>Built a WebSocket-based real-time notification system across Angular and Spring Boot, with pagination, mark-as-read and a notification bell UI, wired into affiliation, project and evaluation workflows.</li>
+          <li>Designed and shipped an AOP-based Audit-Log module spanning entity, repository, service and controller layers, with a user guide and full unit-test suite for platform-wide change traceability.</li>
+          <li>Delivered a Team Management module end to end (CRUD, role assignment, request approvals, advanced filtering) with 100% test coverage on core services.</li>
+          <li>Hardened CI/CD across 3 repositories (Angular frontend, Spring Boot backend, ML microservice) with Docker image builds and SonarQube quality gates; fixed critical XSRF, JWT/Swagger and Hibernate lazy-loading issues affecting production stability.</li>
+          <li>Worked in a Scrum/Agile workflow: stand-ups, sprint planning, backlog refinement, reviews and retrospectives.</li>
+        </ul>
+        <div class="tags"><span class="tag">Angular</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">GitLab CI/CD</span><span class="tag">Docker</span><span class="tag">SonarQube</span></div>
+      </div>
+
+      <div class="job reveal">
+        <div class="date">June 2025 – August 2025</div>
+        <h3>Full Stack Developer Intern</h3>
+        <div class="org">TACHAFY · AI-Driven Healthcare Startup · Tunis, Tunisia / Lyon, France</div>
+        <ul>
+          <li>Built full-stack features for a global digital-health ecosystem spanning teleconsultation, diagnostics and a medical marketplace.</li>
+          <li>Engineered chatbot systems, e-commerce workflows and Stripe-based payment, improving checkout reliability and user experience.</li>
+          <li>Optimized application performance and responsive UI/UX in an Agile, cross-functional startup environment.</li>
+        </ul>
+        <div class="tags"><span class="tag">React.js</span><span class="tag">Material UI</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Postman</span></div>
+      </div>
+
+      <div class="job reveal">
+        <div class="date">Expected October 2027</div>
+        <h3>Engineering Degree in Software Engineering</h3>
+        <div class="org">Faculty of Sciences of Tunis (FST), Tunis El Manar University</div>
+        <ul>
+          <li>2 years preparatory + 3 years engineering.</li>
+          <li>Coursework: Data Analysis, Software Engineering, Operating Systems, Algorithms, Artificial Intelligence.</li>
+          <li>Previously: Baccalaureate in Mathematics, 16.25/20, Chadli Khaznadar High School (June 2022).</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <h2>Certifications</h2>
+    <div class="certs">
+      <div class="card cert reveal"><div class="ico">☁️</div><h3>AWS Cloud Practitioner</h3><p>CLF-C02</p></div>
+      <div class="card cert reveal"><div class="ico">🧠</div><h3>AWS AI Practitioner</h3><p>AIF-C01</p></div>
+      <div class="card cert reveal"><div class="ico">📊</div><h3>Microsoft Office Specialist</h3><p>Excel Associate (Office 2019)</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-box">
+    <h2>Get In Touch</h2>
+    <p>I'm looking for opportunities to build useful software. Feel free to reach out.</p>
+    <div class="contact-list">
+      <a href="mailto:raed.bettaher@etudiant-fst.utm.tn">✉️ raed.bettaher@etudiant-fst.utm.tn</a>
+      <a href="tel:+21690485020">📞 +216 90 485 020</a>
+      <a href="https://github.com/Raed1920" target="_blank" rel="noopener">🐙 github.com/Raed1920</a>
+      <a href="https://www.linkedin.com/in/raed-bettaher-506956275/" target="_blank" rel="noopener">💼 linkedin.com/in/raed-bettaher</a>
+      <a href="#home">📍 Ben Arous, Tunisia</a>
+    </div>
+    <div class="cta" style="justify-content:center"><a class="btn btn-f btn-lg" href="raed-bettaher-cv-fr.pdf" target="_blank" rel="noopener">Download CV (FR)</a><a class="btn btn-f btn-lg" href="raed-bettaher-cv-en.pdf" target="_blank" rel="noopener">Download CV (EN)</a></div>
+  </div>
+</section>
+
+<footer>© 2026 Raed Bettaher. All rights reserved.</footer>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
