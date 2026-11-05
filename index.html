@@ -5,300 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raed Bettaher - Software Engineering Student</title>
 <meta name="description" content="Raed Bettaher, software engineering student at FST. Full-stack (Angular, Spring Boot, React), real-time systems, CI/CD and applied AI. Two internships and three hackathon placements.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 :root{
-  --bg:#000;
-  --bg-alt:#161616;
-  --text:#fff;
-  --muted:#b3b3b3;
-  --main:#7b4bb7;
-  --main-soft:rgba(123,75,183,.15);
-  --main-glow:0 0 25px var(--main);
-  --border:rgba(123,75,183,.35);
+  --teal:#0d9488; --teal-d:#0f766e; --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0;
+  --slate-400:#94a3b8; --slate-600:#475569; --slate-700:#334155; --slate-800:#1e293b; --blue-50:#eff6ff;
+  --card:#ffffff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:62.5%;overflow-x:hidden}
-html::-webkit-scrollbar{width:.8rem}
-html::-webkit-scrollbar-track{background:var(--bg)}
-html::-webkit-scrollbar-thumb{background:var(--main);border-radius:.4rem}
-body{
-  font-family:'Poppins',ui-sans-serif,system-ui,sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.6;font-size:1.6rem;
-}
+html{scroll-behavior:smooth}
+body{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--slate-800);
+  background:linear-gradient(135deg,var(--slate-50),var(--blue-50));min-height:100vh;line-height:1.6}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1152px;margin:0 auto;padding:0 2.4rem}
-section{padding:10rem 0 6rem}
-h2{
-  font-size:3.6rem;font-weight:700;text-align:center;margin-bottom:4.8rem;color:var(--text);
-}
-h2::after{
-  content:"";display:block;width:6.4rem;height:.4rem;background:var(--main);
-  border-radius:.2rem;margin:1.2rem auto 0;box-shadow:var(--main-glow);
-}
-.sub{text-align:center;color:var(--muted);max-width:720px;margin:-2.4rem auto 3.6rem}
-:focus-visible{outline:3px solid var(--main);outline-offset:3px;border-radius:4px}
-.skip{position:absolute;left:-999px;top:8px;background:var(--main);color:#000;padding:8px 14px;border-radius:6px;z-index:200;font-weight:600}
+.wrap{max-width:1152px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+h2{font-size:2rem;font-weight:700;text-align:center;margin-bottom:48px;color:var(--slate-800)}
+h2::after{content:"";display:block;width:64px;height:4px;background:var(--teal);border-radius:2px;margin:12px auto 0}
+.sub{text-align:center;color:var(--slate-600);max-width:720px;margin:-24px auto 36px}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 14px;border-radius:6px;z-index:100}
 .skip:focus{left:8px}
 
-/* header */
-.header{
-  position:fixed;top:0;left:0;width:100%;padding:2rem 9%;
-  background:rgba(0,0,0,.7);backdrop-filter:blur(10px);
-  display:flex;justify-content:space-between;align-items:center;z-index:100;
-  border-bottom:1px solid rgba(123,75,183,.2);
-}
-.logo{font-size:2.8rem;color:var(--main);font-weight:800;cursor:pointer;transition:.5s ease}
-.logo span{color:var(--text)}
-.logo:hover{transform:scale(1.08);text-shadow:var(--main-glow)}
-.navbar{display:flex;align-items:center;gap:3.2rem}
-.navbar a{
-  font-size:1.6rem;color:var(--text);font-weight:500;transition:.3s ease;
-  border-bottom:3px solid transparent;padding-bottom:2px;
-}
-.navbar a:hover,.navbar a.active{color:var(--main);border-bottom-color:var(--main)}
-.navcv{display:flex;gap:.8rem}
-#menu-icon{font-size:3rem;color:var(--main);display:none;cursor:pointer;background:none;border:none}
-
-/* buttons */
-.btn{
-  display:inline-flex;align-items:center;gap:.8rem;
-  padding:1rem 2.8rem;background:transparent;border-radius:4rem;
-  font-size:1.5rem;font-weight:600;letter-spacing:.05rem;font-family:inherit;
-  color:var(--main);border:2px solid var(--main);cursor:pointer;transition:.3s ease;
-}
-.btn:hover{transform:scale(1.04);background:var(--main);color:#000;box-shadow:var(--main-glow)}
-.btn-f{background:var(--main);color:#000;border-color:var(--main)}
-.btn-f:hover{background:transparent;color:var(--main)}
-.btn-lg{padding:1.4rem 3.2rem;font-size:1.7rem}
-.btn-sm{padding:.6rem 1.6rem;font-size:1.3rem}
+/* nav */
+nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);z-index:50;border-bottom:1px solid var(--slate-200)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
+.logo{font-size:1.5rem;font-weight:700}.logo span{color:var(--teal)}
+.links{display:flex;gap:28px}
+.links a{color:var(--slate-600);transition:color .2s}.links a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:6px;font-size:.875rem;font-weight:500;padding:8px 16px;transition:all .2s;cursor:pointer;border:1px solid var(--teal);font-family:inherit}
+.btn-o{color:var(--teal);background:transparent}.btn-o:hover{background:var(--teal);color:#fff}
+.btn-f{background:var(--teal);color:#fff}.btn-f:hover{background:var(--teal-d)}
+.btn-lg{padding:12px 24px;font-size:1rem}
+.navcv{display:flex;gap:8px}
 
 /* hero */
-#home{padding-top:14rem;padding-bottom:4rem}
-.hero{display:flex;align-items:center;justify-content:space-between;gap:6rem}
+#home{padding-top:128px;padding-bottom:48px}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:48px}
 .hero>div:first-child{flex:1}
-.social-icon{display:flex;gap:1.2rem;margin-bottom:2.4rem}
-.social-icon a{
-  display:inline-flex;justify-content:center;align-items:center;
-  width:4.4rem;height:4.4rem;border:2px solid var(--main);border-radius:50%;
-  color:var(--main);font-size:1.9rem;transition:.3s ease;
-}
-.social-icon a:hover{color:#000;transform:scale(1.2) translateY(-4px);background:var(--main);box-shadow:var(--main-glow)}
-.hero h1{font-size:5.6rem;line-height:1.2;font-weight:700;margin-bottom:1.2rem}
-.hero h1 span{color:var(--main);text-shadow:0 0 25px rgba(123,75,183,.6)}
-.role{font-size:2.4rem;color:var(--muted);margin-bottom:2rem;min-height:3.6rem}
-.hero p.lead{color:var(--muted);font-size:1.7rem;max-width:600px;margin-bottom:3.2rem}
-.cta{display:flex;gap:1.6rem;flex-wrap:wrap}
-
-/* typing animation */
-.typing-text span{position:relative;color:var(--main)}
-.typing-text span::before{
-  content:'Software Engineer';
-  animation:words 20s infinite;
-}
-.typing-text span::after{
-  content:'';position:absolute;width:calc(100% + 8px);height:100%;
-  border-left:3px solid var(--main);right:-8px;
-  animation:cursor .6s infinite, typing 4s steps(10) infinite;
-}
-@keyframes cursor{to{border-left:3px solid transparent}}
-@keyframes words{
-  0%,20%{content:'Software Engineer'}
-  21%,40%{content:'Full-Stack Developer'}
-  41%,60%{content:'AI Integrator'}
-  61%,80%{content:'DevOps Enthusiast'}
-  81%,100%{content:'Problem Solver'}
-}
-@keyframes typing{
-  10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{width:0}
-  5%,20%,25%,40%,45%,60%,65%,80%,85%{width:calc(100% + 8px)}
-}
-
-/* avatar */
-.home-img{border-radius:50%}
-.home-img img{
-  width:32rem;height:32rem;border-radius:50%;object-fit:cover;object-position:center 20%;
-  border:4px solid var(--main);box-shadow:var(--main-glow);
-  cursor:pointer;transition:.4s ease;background:#1a1a1a;
-}
-.home-img img:hover{transform:scale(1.02);filter:drop-shadow(0 0 30px var(--main))}
-.reveal{opacity:0;transform:translateY(24px);transition:all .8s ease}
-.reveal.in{opacity:1;transform:none}
+.social{display:flex;gap:16px;margin-bottom:32px}
+.social a{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.1);display:grid;place-items:center;color:var(--slate-600);transition:all .2s}
+.social a:hover{color:var(--teal);box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.social svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero h1{font-size:3rem;line-height:1.15;font-weight:700;margin-bottom:12px}
+.hero h1 span{color:var(--teal)}
+.role{font-size:1.4rem;color:var(--slate-600);margin-bottom:20px}
+.hero p.lead{color:var(--slate-600);font-size:1.1rem;max-width:580px;margin-bottom:32px}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.avatar{width:320px;height:320px;border-radius:50%;flex-shrink:0;object-fit:cover;object-position:center 20%;box-shadow:0 20px 40px rgba(13,148,136,.25);border:8px solid #fff;background:#e2e8f0}
+.reveal{opacity:0;transform:translateY(24px);transition:all .8s ease}.reveal.in{opacity:1;transform:none}
 
 /* stats */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.6rem;margin-top:6rem}
-.stat{background:var(--bg-alt);border:1px solid var(--border);border-radius:1.2rem;padding:2rem;text-align:center;transition:.3s}
-.stat:hover{border-color:var(--main);box-shadow:0 0 20px rgba(123,75,183,.25)}
-.stat b{display:block;font-size:2.8rem;color:var(--main);line-height:1.2}
-.stat span{font-size:1.3rem;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:56px}
+.stat{background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.stat b{display:block;font-size:1.8rem;color:var(--teal-d);line-height:1.2}
+.stat span{font-size:.85rem;color:var(--slate-600)}
 
 /* cards */
-.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.4rem}
-.card{
-  background:var(--bg-alt);border:1px solid var(--border);border-radius:1.4rem;
-  padding:2.4rem;transition:.3s ease;
-}
-.card:hover{border-color:var(--main);box-shadow:0 10px 30px rgba(123,75,183,.2);transform:translateY(-4px)}
-.about-card .ico{font-size:2.4rem;margin-bottom:1rem}
-.about-card h3{font-size:1.7rem;margin-bottom:.8rem;color:var(--text)}
-.about-card p{color:var(--muted);font-size:1.45rem}
-.about-text{max-width:760px;margin:0 auto 4rem;text-align:center;color:var(--muted);font-size:1.65rem}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.card{background:var(--card);border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.07);transition:all .25s}
+.card:hover{box-shadow:0 10px 24px rgba(0,0,0,.1);transform:translateY(-3px)}
+.about-card .ico{font-size:2rem;margin-bottom:8px}
+.about-card h3{font-size:1.1rem;margin-bottom:8px}
+.about-card p{color:var(--slate-600);font-size:.95rem}
+.about-text{max-width:760px;margin:0 auto 40px;text-align:center;color:var(--slate-600);font-size:1.05rem}
 
 /* skills */
-#skills,#experience,#contact{background:var(--bg-alt)}
-#skills .card{background:#0e0e0e}
-.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.4rem}
-.skill-grid h3{font-size:1.7rem;margin-bottom:1.4rem;color:var(--main)}
-.tags{display:flex;flex-wrap:wrap;gap:.8rem}
-.tag{
-  background:rgba(123,75,183,.12);color:#c9a9f0;border:1px solid rgba(123,75,183,.3);
-  border-radius:999px;padding:.4rem 1.2rem;font-size:1.3rem;transition:.2s;
-}
-.tag:hover{background:var(--main);color:#000;border-color:var(--main)}
-.tag.core{background:rgba(123,75,183,.3);color:#e2d1fa;font-weight:600}
-.tag.core:hover{background:var(--main);color:#000}
-.legend{text-align:center;font-size:1.3rem;color:var(--muted);margin-top:2.4rem}
+#skills,#experience,#contact{background:rgba(255,255,255,.55)}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.skill-grid h3{font-size:1.1rem;margin-bottom:14px;color:var(--teal-d)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:var(--slate-100);color:var(--slate-700);border-radius:999px;padding:4px 12px;font-size:.85rem;transition:all .2s}
+.tag:hover{background:var(--teal);color:#fff}
+.tag.core{background:#ccfbf1;color:var(--teal-d);font-weight:600}
+.tag.core:hover{background:var(--teal);color:#fff}
+.legend{text-align:center;font-size:.85rem;color:var(--slate-600);margin-top:24px}
 
 /* projects */
-.filters{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-bottom:3.2rem}
-.filters button{
-  background:var(--bg-alt);border:1px solid var(--border);color:var(--muted);
-  border-radius:999px;padding:.6rem 1.6rem;font-size:1.4rem;cursor:pointer;
-  font-family:inherit;transition:.2s;
-}
-.filters button:hover{border-color:var(--main);color:var(--main)}
-.filters button[aria-pressed="true"]{background:var(--main);border-color:var(--main);color:#000;font-weight:600}
-.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2.8rem}
+.filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px}
+.filters button{background:#fff;border:1px solid var(--slate-200);color:var(--slate-600);border-radius:999px;padding:6px 16px;font-size:.88rem;cursor:pointer;font-family:inherit;transition:all .2s}
+.filters button:hover{border-color:var(--teal);color:var(--teal)}
+.filters button[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
 .proj{display:flex;flex-direction:column}
 .proj[hidden]{display:none}
-.proj .num{font-size:1.2rem;font-weight:600;color:var(--main);text-transform:uppercase;letter-spacing:.08em}
-.proj h3{font-size:1.9rem;margin:.6rem 0 .4rem;color:var(--text)}
-.proj .meta{font-size:1.3rem;color:#7a7a7a;margin-bottom:1.2rem}
-.proj p{color:var(--muted);font-size:1.45rem;margin-bottom:1.2rem}
-.proj ul{padding-left:1.8rem;color:var(--muted);font-size:1.4rem;margin-bottom:1.4rem;flex:1}
-.proj li{margin-bottom:.4rem}
-.proj .tags{margin-bottom:1.6rem}
+.proj .num{font-size:.8rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}
+.proj h3{font-size:1.2rem;margin:6px 0 4px}
+.proj .meta{font-size:.85rem;color:var(--slate-400);margin-bottom:12px}
+.proj p{color:var(--slate-600);font-size:.93rem;margin-bottom:12px}
+.proj ul{padding-left:18px;color:var(--slate-600);font-size:.9rem;margin-bottom:14px;flex:1}
+.proj li{margin-bottom:4px}
+.proj .tags{margin-bottom:16px}
+.proj .tag{background:#ccfbf1;color:var(--teal-d)}
 .proj .btn{align-self:flex-start}
-.badge{
-  display:inline-block;background:rgba(123,75,183,.25);color:#e2d1fa;border:1px solid var(--main);
-  border-radius:.6rem;padding:.2rem 1rem;font-size:1.2rem;font-weight:600;margin-bottom:.8rem;width:fit-content;
-}
-.badge.intern{background:rgba(59,130,246,.2);color:#93c5fd;border-color:#3b82f6}
-.note{font-size:1.2rem;color:#7a7a7a;margin-bottom:1.2rem;font-style:italic}
+.badge{display:inline-block;background:#fef3c7;color:#92400e;border-radius:6px;padding:2px 10px;font-size:.78rem;font-weight:600;margin-bottom:8px;width:fit-content}
+.badge.intern{background:#dbeafe;color:#1e40af}
+.note{font-size:.78rem;color:var(--slate-400);margin-bottom:12px;font-style:italic}
 
 /* timeline */
-.timeline{max-width:820px;margin:0 auto;border-left:3px solid var(--border);padding-left:3.2rem}
-.job{position:relative;margin-bottom:4rem}
-.job::before{
-  content:"";position:absolute;left:-4.15rem;top:.6rem;width:1.6rem;height:1.6rem;border-radius:50%;
-  background:var(--main);box-shadow:0 0 0 3px var(--bg-alt),0 0 15px var(--main);
-}
-.job .date{font-size:1.2rem;font-weight:600;color:var(--main);text-transform:uppercase;letter-spacing:.08em}
-.job h3{font-size:1.9rem;margin:.4rem 0 .2rem;color:var(--text)}
-.job .org{color:var(--muted);margin-bottom:1.2rem}
-.job ul{padding-left:2rem;color:var(--muted);font-size:1.45rem}
-.job li{margin-bottom:.6rem}
-.job .tags{margin-top:1.2rem}
+.timeline{max-width:820px;margin:0 auto;border-left:3px solid var(--slate-200);padding-left:32px}
+.job{position:relative;margin-bottom:40px}
+.job::before{content:"";position:absolute;left:-42px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--teal);border:3px solid #fff;box-shadow:0 0 0 2px var(--teal)}
+.job .date{font-size:.8rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}
+.job h3{font-size:1.2rem;margin:4px 0 2px}
+.job .org{color:var(--slate-600);margin-bottom:12px}
+.job ul{padding-left:20px;color:var(--slate-600);font-size:.95rem}
+.job li{margin-bottom:6px}
+.job .tags{margin-top:12px}
 
 /* certs */
-.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.4rem;max-width:900px;margin:0 auto}
-.cert{text-align:center}
-.cert .ico{font-size:2.6rem;margin-bottom:.8rem}
-.cert h3{font-size:1.6rem;color:var(--text)}
-.cert p{color:var(--muted);font-size:1.3rem}
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.cert{text-align:center}.cert .ico{font-size:2.2rem;margin-bottom:8px}.cert h3{font-size:1rem}.cert p{color:var(--slate-600);font-size:.85rem}
 
 /* contact */
 .contact-box{max-width:640px;margin:0 auto;text-align:center}
-.contact-box p{color:var(--muted);margin-bottom:2.8rem}
-.contact-list{display:grid;gap:1.2rem;margin-bottom:2.8rem}
-.contact-list a{
-  background:var(--bg);border:1px solid var(--border);border-radius:1rem;
-  padding:1.4rem 2rem;transition:.3s;display:block;font-size:1.5rem;
-}
-.contact-list a:hover{color:var(--main);border-color:var(--main);box-shadow:0 8px 20px rgba(123,75,183,.25)}
-footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;border-top:1px solid var(--border)}
+.contact-box p{color:var(--slate-600);margin-bottom:28px}
+.contact-list{display:grid;gap:12px;margin-bottom:28px}
+.contact-list a{background:#fff;border-radius:10px;padding:14px 20px;box-shadow:0 2px 6px rgba(0,0,0,.06);transition:all .2s;display:block}
+.contact-list a:hover{color:var(--teal);box-shadow:0 8px 18px rgba(0,0,0,.1)}
+footer{text-align:center;padding:32px 24px;color:var(--slate-400);font-size:.875rem;border-top:1px solid var(--slate-200)}
 
-/* responsive */
-@media(max-width:995px){
-  #menu-icon{display:block}
-  .navbar{
-    position:absolute;top:100%;right:0;width:60%;
-    background:var(--bg-alt);border-left:2px solid var(--main);
-    border-bottom-left-radius:2rem;padding:1rem 3%;
-    display:none;flex-direction:column;align-items:flex-start;gap:0;
-  }
-  .navbar.active{display:flex}
-  .navbar a{display:block;font-size:1.9rem;margin:2rem 0}
-  .navbar a:hover,.navbar a.active{border-bottom:2px solid var(--main);padding-bottom:.4rem}
-  .navcv{display:none}
-  .hero{flex-direction:column-reverse;text-align:center;gap:4rem}
-  .social-icon,.cta{justify-content:center}
-  .hero h1{font-size:3.8rem}
-  .home-img img{width:24rem;height:24rem}
+@media(max-width:820px){
+  .links{display:none}
+  .navcv .btn{padding:6px 10px;font-size:.8rem}
+  .hero{flex-direction:column-reverse;text-align:center}
+  .social,.cta{justify-content:center}
+  .hero h1{font-size:2.25rem}.avatar{width:220px;height:220px}
   .hero p.lead{margin-left:auto;margin-right:auto}
   .projects{grid-template-columns:1fr}
-  h2{font-size:2.8rem}
 }
-@media(max-width:600px){
-  .header{padding:1.6rem 5%}
-  .hero h1{font-size:3.2rem}
-  .role{font-size:2rem}
-  .typing-text{min-width:0}
-}
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .typing-text span::before{content:'Software Engineer';animation:none}
-  .typing-text span::after{display:none}
-  html{scroll-behavior:auto}
-}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <a class="skip" href="#projects">Skip to projects</a>
 
-<header class="header">
-  <a class="logo" href="#home">Raed<span>.</span></a>
-  <button id="menu-icon" aria-label="Toggle navigation" aria-expanded="false">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-  <nav class="navbar" id="navbar">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="navcv">
-    <a class="btn btn-sm" href="raed-bettaher-cv-fr.pdf" target="_blank" rel="noopener">CV (FR)</a>
-    <a class="btn btn-sm" href="raed-bettaher-cv-en.pdf" target="_blank" rel="noopener">CV (EN)</a>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#home">Raed<span>.</span></a>
+    <div class="links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </div>
+    <div class="navcv"><a class="btn btn-o" href="raed-bettaher-cv-fr.pdf" target="_blank" rel="noopener">CV (FR)</a><a class="btn btn-o" href="raed-bettaher-cv-en.pdf" target="_blank" rel="noopener">CV (EN)</a></div>
   </div>
-</header>
+</nav>
 
 <section id="home">
   <div class="wrap">
     <div class="hero">
       <div class="reveal">
-        <div class="social-icon">
-          <a href="https://github.com/Raed1920" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/raed-bettaher-506956275/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="mailto:raed.bettaher@etudiant-fst.utm.tn" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-          <a href="tel:+21690485020" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+        <div class="social">
+          <a href="https://github.com/Raed1920" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+          <a href="https://www.linkedin.com/in/raed-bettaher-506956275/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="mailto:raed.bettaher@etudiant-fst.utm.tn" aria-label="Email"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
+          <a href="tel:+21690485020" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
         </div>
         <h1>Hello, I'm <span>Raed Bettaher</span></h1>
-        <h3 class="role typing-text">I'm a <span></span></h3>
+        <p class="role">Software Engineering Student</p>
         <p class="lead">I build full-stack platforms (Angular, Spring Boot, React) with real-time features, CI/CD pipelines and applied AI. Two internships, three hackathon placements, AWS-certified, and currently looking for my next engineering internship.</p>
         <div class="cta">
           <a class="btn btn-f btn-lg" href="#projects">Discover My Projects</a>
-          <a class="btn btn-lg" href="#contact">Contact Me</a>
+          <a class="btn btn-o btn-lg" href="#contact">Contact Me</a>
         </div>
       </div>
-      <div class="home-img reveal">
-        <img src="raed.jpg" alt="Portrait of Raed Bettaher" width="320" height="320">
-      </div>
+      <img class="avatar reveal" src="raed.jpg" alt="Portrait of Raed Bettaher" width="320" height="320">
     </div>
   </div>
 </section>
@@ -320,6 +189,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
   <div class="wrap">
     <h2>Professional Experience</h2>
     <div class="timeline">
+
       <div class="job reveal">
         <div class="date">June 2026 – August 2026</div>
         <h3>Software Engineer Intern</h3>
@@ -333,6 +203,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
         </ul>
         <div class="tags"><span class="tag">Angular</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">GitLab CI/CD</span><span class="tag">Docker</span><span class="tag">SonarQube</span></div>
       </div>
+
       <div class="job reveal">
         <div class="date">June 2025 – August 2025</div>
         <h3>Frontend / Full-Stack Developer Intern</h3>
@@ -345,6 +216,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
         </ul>
         <div class="tags"><span class="tag">React.js</span><span class="tag">TypeScript</span><span class="tag">Material UI</span><span class="tag">Axios</span><span class="tag">Postman</span></div>
       </div>
+
       <div class="job reveal">
         <div class="date">Expected October 2027</div>
         <h3>Engineering Degree in Software Engineering</h3>
@@ -355,6 +227,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Previously: Baccalaureate in Mathematics, 16.25/20, Chadli Khaznadar High School (June 2022).</li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
@@ -415,7 +288,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Refactored a 64 KB admin dashboard with lazy per-tab loading; shared international phone field across 6+ forms.</li>
         </ul>
         <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript</span><span class="tag">MUI</span><span class="tag">Axios + JWT</span><span class="tag">TF.js</span></div>
-        <a class="btn btn-sm" href="https://github.com/Raed1920/StageTachafy" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Raed1920/StageTachafy" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="hack ai fullstack">
@@ -429,7 +302,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>React pages: landing, login, Lost &amp; Found, chat; integrated the team's chatbot and navigation.</li>
         </ul>
         <div class="tags"><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">BLIP</span><span class="tag">SBERT</span><span class="tag">React</span></div>
-        <a class="btn btn-sm" href="https://github.com/Raed1920/ATIA_LunarHack" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Raed1920/ATIA_LunarHack" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="hack ai fullstack">
@@ -443,7 +316,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Integrated the three services with PowerShell orchestration and architecture docs.</li>
         </ul>
         <div class="tags"><span class="tag">FastAPI</span><span class="tag">React 19</span><span class="tag">CLIP</span><span class="tag">Gemini API</span><span class="tag">Chrome MV3</span></div>
-        <a class="btn btn-sm" href="https://github.com/Raed1920/Hackathon_GDGC" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Raed1920/Hackathon_GDGC" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="hack ai fullstack">
@@ -457,7 +330,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Wrote five n8n workflows plus API, schema and handoff documentation.</li>
         </ul>
         <div class="tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag">Ollama / RAG</span><span class="tag">n8n</span></div>
-        <a class="btn btn-sm" href="https://github.com/Raed1920/Lunar_Hack_Madagascar" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Raed1920/Lunar_Hack_Madagascar" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="devops fullstack">
@@ -470,7 +343,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Hardened gateway JWT validation; JaCoCo and Sonar coverage in every service.</li>
         </ul>
         <div class="tags"><span class="tag">Spring Cloud</span><span class="tag">Jenkins</span><span class="tag">SonarQube</span><span class="tag">Docker</span><span class="tag">Helm</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/GL5-G4-student" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/GL5-G4-student" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="fullstack">
@@ -482,7 +355,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Full promotions lifecycle, product details, cart and wishlist sync.</li>
         </ul>
         <div class="tags"><span class="tag">React 19</span><span class="tag">Express</span><span class="tag">Supabase</span><span class="tag">Stripe</span><span class="tag">FCM</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/NotiShop" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/NotiShop" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="fullstack">
@@ -494,7 +367,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Subject proposals, supervision requests, defence availability with PostgreSQL range-overlap checks, PFE progress logs.</li>
         </ul>
         <div class="tags"><span class="tag">Next.js 16</span><span class="tag">MUI</span><span class="tag">PostgreSQL</span><span class="tag">Vitest</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/PFEX-IGL4" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/PFEX-IGL4" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="systems">
@@ -506,7 +379,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Grammar iterations and a CSV-to-Java table generator.</li>
         </ul>
         <div class="tags"><span class="tag">Java</span><span class="tag">Compiler theory</span><span class="tag">Python</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/SLR_Compiler" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/SLR_Compiler" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="systems">
@@ -518,7 +391,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Found and fixed a matrix-clock merge bug; launch scripts and terminal visualisation.</li>
         </ul>
         <div class="tags"><span class="tag">C</span><span class="tag">POSIX sockets</span><span class="tag">Distributed algorithms</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/AR_Horloges_IGL3" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/AR_Horloges_IGL3" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="systems fullstack">
@@ -529,7 +402,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Admin dashboard and voter portal with full MetaMask lifecycle: account and chain listeners, network switching, owner detection.</li>
         </ul>
         <div class="tags"><span class="tag">React</span><span class="tag">ethers.js</span><span class="tag">Tailwind</span><span class="tag">Hardhat</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/vote_system_ether" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/vote_system_ether" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="fullstack">
@@ -541,7 +414,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>JWT auth with roles, server-side pagination and sorting, admin CRUD console, GraphQL sandbox.</li>
         </ul>
         <div class="tags"><span class="tag">GraphQL</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">bcrypt / JWT</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/igl4-graphQL" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/igl4-graphQL" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="devops">
@@ -553,7 +426,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Restored a standard RDS configuration, made app instances private, kept CloudTrail policies in sync.</li>
         </ul>
         <div class="tags"><span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">ALB / ASG / RDS</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/projet-cloud-aws" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/projet-cloud-aws" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="ai systems">
@@ -562,7 +435,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
         <div class="meta">Computer vision · solo</div>
         <p>Scans long night videos, detects lightning with adaptive baselines and weighted brightness, saturation and edge scoring, exports clips, picks the sharpest frame and isolates the bolt as a transparent PNG.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">NumPy / SciPy</span><span class="tag">FFmpeg</span></div>
-        <a class="btn btn-sm" href="https://github.com/Raed1920/lightning-detection" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Raed1920/lightning-detection" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="systems">
@@ -571,7 +444,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
         <div class="meta">Graph theory course (IGL3)</div>
         <p>Welsh-Powell greedy colouring checked against textbook results, plus my exact ILP solver (PuLP) cross-validating the heuristic on an exam-timetabling instance.</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">NetworkX</span><span class="tag">PuLP (ILP)</span></div>
-        <a class="btn btn-sm" href="https://github.com/Raed1920/Graphes_IGL3" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Raed1920/Graphes_IGL3" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="fullstack">
@@ -582,7 +455,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>Conflict-aware timetable (teacher and room availability), SQL-aggregated statistics with Chart.js, teacher and subject management.</li>
         </ul>
         <div class="tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/Softech_IGL3" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/Softech_IGL3" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
       <article class="card proj reveal" data-cat="fullstack">
@@ -593,7 +466,7 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
           <li>1,600-line movie details screen (trailer, cast and crew, ratings), Netflix-style home and explore, onboarding carousel.</li>
         </ul>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span></div>
-        <a class="btn btn-sm" href="https://github.com/Chaabane2k03/netmatch" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn btn-o" href="https://github.com/Chaabane2k03/netmatch" target="_blank" rel="noopener">View on GitHub</a>
       </article>
 
     </div>
@@ -620,55 +493,25 @@ footer{text-align:center;padding:3.2rem 2.4rem;color:#7a7a7a;font-size:1.4rem;bo
       <a href="tel:+21690485020">📞 +216 90 485 020</a>
       <a href="https://github.com/Raed1920" target="_blank" rel="noopener">🐙 github.com/Raed1920</a>
       <a href="https://www.linkedin.com/in/raed-bettaher-506956275/" target="_blank" rel="noopener">💼 linkedin.com/in/raed-bettaher</a>
+      <a href="#home">📍 Ben Arous, Tunisia</a>
     </div>
-    <div class="cta" style="justify-content:center">
-      <a class="btn btn-f btn-lg" href="raed-bettaher-cv-fr.pdf" target="_blank" rel="noopener">Download CV (FR)</a>
-      <a class="btn btn-f btn-lg" href="raed-bettaher-cv-en.pdf" target="_blank" rel="noopener">Download CV (EN)</a>
-    </div>
+    <div class="cta" style="justify-content:center"><a class="btn btn-f btn-lg" href="raed-bettaher-cv-fr.pdf" target="_blank" rel="noopener">Download CV (FR)</a><a class="btn btn-f btn-lg" href="raed-bettaher-cv-en.pdf" target="_blank" rel="noopener">Download CV (EN)</a></div>
   </div>
 </section>
 
 <footer>© 2026 Raed Bettaher. All rights reserved.</footer>
 
 <script>
-// reveal on scroll
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// project filters
 const btns = document.querySelectorAll('.filters button');
 const cards = document.querySelectorAll('#grid .proj');
 btns.forEach(b => b.addEventListener('click', () => {
-  btns.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  btns.forEach(x => x.setAttribute('aria-pressed', x === b));
   const f = b.dataset.f;
   cards.forEach(c => { c.hidden = !(f === 'all' || c.dataset.cat.split(' ').includes(f)); c.classList.add('in'); });
 }));
-
-// mobile menu toggle
-const menuIcon = document.getElementById('menu-icon');
-const navbar = document.getElementById('navbar');
-menuIcon.addEventListener('click', () => {
-  const open = navbar.classList.toggle('active');
-  menuIcon.setAttribute('aria-expanded', open ? 'true' : 'false');
-  menuIcon.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-});
-navbar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  navbar.classList.remove('active');
-  menuIcon.setAttribute('aria-expanded', 'false');
-  menuIcon.innerHTML = '<i class="fa-solid fa-bars"></i>';
-}));
-
-// active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.navbar a');
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-    }
-  });
-}, {rootMargin:'-45% 0px -50% 0px'});
-sections.forEach(s => navObserver.observe(s));
 </script>
 </body>
 </html>
